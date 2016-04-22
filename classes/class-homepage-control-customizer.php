@@ -22,6 +22,7 @@ class Homepage_Control_Customizer {
 	 * @return void
 	 */
 	public function customizer_setup ( $wp_customize ) {
+		if ( has_action( 'homepage' ) ) {
 		$wp_customize->add_section( 'homepage_control', array(
 			'title'          => __( 'Homepage Control', 'homepage-control' ),
 			'priority'       => 70,
@@ -46,6 +47,7 @@ class Homepage_Control_Customizer {
 			'type'				=> 'hidden',
 			'sanitize_callback'	=> array( $this, '_canvas_sanitize_components' ),
 		) ) );
+		}
 	}
 
 	/**
